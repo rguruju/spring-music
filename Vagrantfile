@@ -17,6 +17,9 @@ Vagrant.configure("2") do |config|
       vb.memory = "1024"
     end
     jenkins.vm.provision "shell", inline: <<-SHELL
+      # install git client
+      yum install git curl -y
+
       # Creating user jenkins
       useradd -m -d /home/jenkins -s /bin/bash jenkins
 
@@ -95,6 +98,8 @@ Vagrant.configure("2") do |config|
       yum install java-1.8.0-openjdk.x86_64 -y
       java -version
 
+      # Install git client
+      yum install git curl -y
       # Get the public IP of your app Server
       echo -e "Please take a note of public IP mentioned below."
       hostname -I | awk -F' ' '{print $2}'
