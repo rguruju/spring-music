@@ -82,7 +82,7 @@ Vagrant.configure("2") do |config|
   # Agent Server Configuration
   config.vm.define :agentServer do |agent|
     agent.vm.network "forwarded_port", guest: 8080, host: 7082
-    app.vm.network "private_network", ip: "172.28.128.4"
+    agent.vm.network "private_network", ip: "172.28.128.4"
     agent.vm.provider "virtualbox" do |vb|
       # Display the VirtualBox GUI when booting the machine
       # vb.gui = true
