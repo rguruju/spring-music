@@ -29,7 +29,6 @@ Vagrant.configure("2") do |config|
       # Adding jenkins user to sudoer group
       usermod -aG wheel jenkins
 
-      yum update -y
       yum install java-1.8.0-openjdk.x86_64 -y
 
       wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
@@ -63,7 +62,6 @@ Vagrant.configure("2") do |config|
     app.vm.provision "shell", inline: <<-SHELL
       # Update your CentOS system
       yum install epel-release
-      yum update -y
 
       # Install Java
       yum install java-1.8.0-openjdk.x86_64 -y
