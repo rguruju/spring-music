@@ -49,7 +49,6 @@ Vagrant.configure("2") do |config|
   # App Server Configuration
   config.vm.define :appServer do |app|
     app.vm.network "forwarded_port", guest: 8080, host: 7081
-    app.vm.provision "file", source: "./tomcat.service", destination: "/tmp/tomcat.service"
     app.vm.provider "virtualbox" do |vb|
       # Display the VirtualBox GUI when booting the machine
       # vb.gui = true
