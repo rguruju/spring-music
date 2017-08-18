@@ -91,6 +91,7 @@ Vagrant.configure("2") do |config|
       vb.memory = "1024"
     end
     agent.vm.network "private_network", type: "dhcp"
+    agent.vm.provision "file", source: "./.vagrant/machines/appServer/virtualbox/private_key", destination: "/home/vagrant/.ssh/id_rsa"
     agent.vm.provision "shell", inline: <<-SHELL
       # Install Java
       yum install java-1.8.0-openjdk.x86_64 -y
