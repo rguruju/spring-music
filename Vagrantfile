@@ -29,7 +29,7 @@ Vagrant.configure("2") do |config|
       # Adding jenkins user to sudoer group
       usermod -aG wheel jenkins
 
-      yum install java-1.8.0-openjdk.x86_64 -y
+      yum install java-1.8.0-openjdk.x86_64 java-1.8.0-openjdk-devel -y
 
       wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
       rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
@@ -64,7 +64,7 @@ Vagrant.configure("2") do |config|
       yum install epel-release
 
       # Install Java
-      yum install java-1.8.0-openjdk.x86_64 -y
+      yum install java-1.8.0-openjdk.x86_64 java-1.8.0-openjdk-devel -y
       java -version
 
       # Create a dedicated user for Apache Tomcat
@@ -94,7 +94,7 @@ Vagrant.configure("2") do |config|
     agent.vm.provision "file", source: "./.vagrant/machines/appServer/virtualbox/private_key", destination: "/home/vagrant/.ssh/id_rsa"
     agent.vm.provision "shell", inline: <<-SHELL
       # Install Java
-      yum install java-1.8.0-openjdk.x86_64 -y
+      yum install java-1.8.0-openjdk.x86_64 java-1.8.0-openjdk-devel -y
       java -version
 
       # Install git client
