@@ -1,6 +1,0 @@
-<jenkins>
-    <install plugin="job-dsl@1.64"/>
-    <install plugin="build-user-vars-plugin@1.5"/>
-    <install plugin="htmlpublisher@1.14"/>
-    <install plugin="script-security@1.33"/>
-</jenkins>
